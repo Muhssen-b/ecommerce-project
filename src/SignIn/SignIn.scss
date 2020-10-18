@@ -1,0 +1,25 @@
+
+
+
+.textFields {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    width: 40%;
+    margin-top: 5%;
+
+    .textField2 {
+        margin-top: 12%;
+    }
+}
+
+.google-sign-in {
+    background-color: #4285f4;
+    border: none;
+    color: white;
+    
+    &:hover {
+        background-color: #357ae8;
+        border: none;
+    }
+}

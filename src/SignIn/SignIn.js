@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 
-import { signInWithGoogle } from '../firebase/firebase.utils.js';
+import { auth, signInWithGoogle } from '../firebase/firebase.utils.js';
 
 import './SignIn.scss'
 
@@ -16,9 +16,15 @@ class SignIn extends React.Component {
             password: '',
         }
     }
-    handleSubmit = (event) => {
-            
+    handleSubmit = async event => {
         event.preventDefault();
+        const { email, password } = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({email: '' , password: ''});
+        } catch(error) {
+            console.log(error);
+        }
         this.setState({ email: '', password : ''})
     
     }
